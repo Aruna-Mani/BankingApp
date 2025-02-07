@@ -1,0 +1,21 @@
+﻿@model BankAccount
+
+@{
+    ViewData["Title"] = "Delete Account";
+}
+
+<h2>Are you sure you want to delete the account of @Model.AccountNumber?</h2>
+
+<div>
+    <p><strong>Account ID:</strong> @Model.Id</p>
+    <p><strong>Account Number:</strong> @Model.AccountNumber</p>
+    <p><strong>Account Holder Name:</strong> @Model.AccountHolder</p>
+    <p><strong>Balance:</strong> @Model.Balance</p>
+</div>
+
+<form method="post" asp-action="DeleteConfirmed">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    @* <a href="@Url.Action("DeleteConfirmed", "BankingDashboard", new { id = Model.Id })" class="btn btn-danger">Delete</a> *@
+    <a href="@Url.Action("Index", "BankingDashboard")" class="btn btn-secondary">Cancel</a>
+</form>

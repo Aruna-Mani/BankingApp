@@ -1,0 +1,20 @@
+@section styles {
+    <style >
+    body {
+        background-color: #f0f2f5;
+    }
+
+    .container {
+        margin-top: 100px; /* Add space on top */
+    }
+
+    .form-group input {
+        border-radius: 10px; /* Rounded corners for input fields */
+    }
+
+    .btn-primary {
+        border-radius: 5px;
+    }
+
+    </style>
+}

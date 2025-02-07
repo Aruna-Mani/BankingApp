@@ -1,0 +1,45 @@
+﻿@model IEnumerable<FundTransfer>
+
+@{
+    ViewData["Title"] = "Fund Transfers";
+}
+
+<h2>@ViewData["Title"]</h2>
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+<p>
+    <a href="@Url.Action("Create")" class="btn btn-primary">Create New Transfer</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Sender Account</th>
+            <th>Receiver Account</th>
+            <th>Amount</th>
+            <th>Description</th>
+            <th>Transfer Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var transfer in Model)
+        {
+            <tr>
+                <td>@transfer.SenderAccount</td>
+                <td>@transfer.ReceiverAccount</td>
+                <td>@transfer.Amount</td>
+                <td>@transfer.Description</td>
+                <td>@transfer.TransferDate</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = transfer.Id })" class="btn btn-warning">Edit</a>
+                    <a href="@Url.Action("Delete", new { id = transfer.Id })" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,17 @@
+﻿@model BankAccount
+
+@{
+    ViewData["Title"] = "Account Details";
+}
+
+<h2>@Model.AccountNumber</h2>
+
+<div>
+    <p><strong>Account ID:</strong> @Model.Id</p>
+    <p><strong>Account Number:</strong> @Model.AccountNumber</p>
+    <p><strong>Account Holder Name:</strong> @Model.AccountHolder</p>
+    <p><strong>Balance:</strong> @Model.Balance</p>
+</div>
+
+<a href="@Url.Action("Edit", "BankingDashboard", new { id = Model.Id })" class="btn btn-primary">Edit</a>
+<a href="@Url.Action("Delete", "BankingDashboard", new { id = Model.Id })" class="btn btn-danger">Delete</a>

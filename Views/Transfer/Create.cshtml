@@ -1,0 +1,41 @@
+﻿@model FundTransfer
+
+@{
+    ViewData["Title"] = "Create Fund Transfer";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Create" method="post">
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        </div>
+    }
+    <div class="mb-3">
+        <label for="SenderAccount" class="form-label">Sender Account</label>
+        <input type="text" class="form-control" id="SenderAccount" name="SenderAccount" />
+        @Html.ValidationMessageFor(model => model.SenderAccount, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="mb-3">
+        <label for="ReceiverAccount" class="form-label">Receiver Account</label>
+        <input type="text" class="form-control" id="ReceiverAccount" name="ReceiverAccount" />
+        @Html.ValidationMessageFor(model => model.ReceiverAccount, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="mb-3">
+        <label for="Amount" class="form-label">Amount</label>
+        <input type="number" class="form-control" id="Amount" name="Amount" />
+        @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="mb-3">
+        <label for="Description" class="form-label">Description</label>
+        <textarea class="form-control" id="Description" name="Description"></textarea>
+        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create Transfer</button>
+</form>

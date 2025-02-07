@@ -1,0 +1,31 @@
+﻿@model IEnumerable<BankAccount>
+
+<h2>Accounts</h2>
+<p>
+    <a href="@Url.Action("Create", "BankingDashboard")" class="btn btn-primary">Create New Account</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Account Number</th>
+            <th>Account Holder</th>
+            <th>Balance</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var account in Model)
+        {
+            <tr>
+                <td>@account.AccountNumber</td>
+                <td>@account.AccountHolder</td>
+                <td>@account.Balance</td>
+                <td>
+                    <a href="@Url.Action("Details", "BankingDashboard", new { id = account.Id })" class="btn btn-info">Details</a>
+                    <a href="@Url.Action("Edit", "BankingDashboard", new { id = account.Id })" class="btn btn-warning">Edit</a>
+                    <a href="@Url.Action("Delete", "BankingDashboard", new { id = account.Id })" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
