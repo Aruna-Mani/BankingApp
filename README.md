@@ -1,4 +1,5 @@
-# BankingApp
+# BankingApp:
+      Download the code, open Visual Studio 2022, and load the solution. Update the ConnectionStrings in appSettings.json with your local SQL connection, then run the code on your local machine.
 **Login Page:**
       Develop a secure login form with validation and implement JWT-based authentication, ensuring tokens are securely stored on the client side.
       ![1](https://github.com/user-attachments/assets/9e076eeb-d1b1-4f07-88ee-7de2f7fba8f1)
